@@ -1,0 +1,49 @@
+{ 
+	"scene" : {
+		"sampling_dist" : 0.1,
+		"width" : 2,
+		"height" : 2,
+		"neighbours" : 1
+	},
+
+	"sph" : {
+		"epsilon_xsph" : 0,
+		"moving_least_squares" : false,
+		"c": 99.045,
+		"alpha": 0,
+		"t_damp": 0,
+		"g": [0, -9.81]
+	},
+	"asm" : {
+		"time_scaling" : 1,
+		"grid" : {
+			"origin_x" : 0.75,
+			"origin_y" : 0.75,
+			"neighbours" : 1,
+			"size" : 1
+		},
+		"reactor1" : {
+			"area" : {
+				"x" : 0.5, 
+				"y" : 0.5, 
+				"width" : 1, 
+				"height" : 1	
+			},
+			"oxygen" : 0.0,
+			"inflow" : 1800.0
+		},
+		"reactor2" : {
+			"cstr" : true,
+			"cstr_volume" : 300.0,
+			"oxygen" : 2.0
+		}
+	},
+	"fluids" : [ 
+		 { 
+			"x" : 0.75, 
+			"y" : 0.75, 
+			"width" : 0.15, 
+			"height" : 0.15			 
+		 }
+	]
+}

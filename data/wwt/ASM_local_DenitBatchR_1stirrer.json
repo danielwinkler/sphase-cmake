@@ -1,0 +1,121 @@
+{ 
+	"scene" : {
+		"sampling_dist" : 0.15,
+		"width" : 36,
+		"height" : 14,
+		"neighbours" : 2
+	},
+
+	"sph" : {
+		"epsilon_xsph" : 0,
+		"moving_least_squares" : true,
+		"c": 99.045,
+		"alpha": 0.1,
+		"t_damp": 1.0096,
+		"g": [0, -9.81]
+	},
+
+	"stirrer" :  {
+		"type" : 2,
+		"origin_x" : 4.9,
+		"origin_y" : 8.6,
+		"velocity" : 0.8,
+		"length_x" : 23,
+		"length_y" : 1
+	},
+
+	"stirrer2" :  {
+		"type" : 2,
+		"origin_x" : 30.7,
+		"origin_y" : 8.6,
+		"velocity" : -0.8,
+		"length_x" : 23,
+		"length_y" : 1
+	},
+
+	"asm" : {
+		"time_scaling" : 1,
+		"grid" : {
+			"origin_x" : 4.9,
+			"origin_y" : 6.4,
+			"neighbours" : 7,
+			"size" : 14
+		},
+		"inflow_area" : {
+			"x" : 6.4,
+			"y" : 9.85,
+			"width" : 2.85,
+			"height" : 2.25
+		}, 
+	        "outflow_area" : {
+			"x" : 26.5,
+			"y" : 9.85,
+			"width" : 2.85,
+			"height" : 2.25
+		},
+		"reactor1" : {
+			"area" : {
+				"x" : 4.9, 
+				"y" : 6.4, 
+				"width" : 26, 
+				"height" : 6	
+			},
+			"oxygen" : 0.0,
+			"inflow" : 1800.0
+		},
+		"reactor2" : {
+			"cstr" : true,
+			"cstr_volume" : 300.0,
+			"oxygen" : 2.0
+		}
+	},
+
+	"boundaries" : [        		       				 
+		[ 
+			{ 
+				"velocity" : [0, 0], 
+				"lines" : [
+					{ "x" : 30.7, "y" : 13.9 },
+					{ "x" : 30.7, "y" : 6.4 },
+					{ "x" : 4.9, "y" : 6.4 },
+					{ "x" : 4.9, "y" : 13.95 }
+				]						
+			},
+			{ 
+				"velocity" : [0, 0], 
+				"lines" : [
+					{ "x" : 4.75, "y" : 6.4 },
+					{ "x" : 4.45, "y" : 6.4 }
+				]						
+			},
+			{ 
+				"velocity" : [0, 0], 
+				"lines" : [
+					{ "x" : 31.15, "y" : 6.4 },
+					{ "x" : 30.85, "y" : 6.4 }
+				]						
+			}
+		]
+	],
+
+	"fluids" : [ 
+		 { 
+			"x" : 4.9, 
+			"y" : 6.4, 
+			"width" : 26, 
+			"height" : 5.75			 
+		 }
+	],
+
+	"horizontal_inflows" : [
+		[
+			{
+				"velocity" : [0.021551076783992, -0.008449133218214],
+				"lines" : [
+					{ "x" : 6.8365, "y" : 12.8431 },
+					{ "x" : 6.8, "y" : 12.75 }
+				]
+			}
+		]
+	]
+}

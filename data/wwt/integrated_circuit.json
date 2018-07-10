@@ -1,0 +1,85 @@
+{
+	"scene" : {"sampling_dist" : 0.02, "width" : 10, "height" : 10, "neighbours" : 2},
+	"sph" : {"c": 20, "alpha": 0.4, "t_damp": 0, "epsilon_repulsion" : 0, "epsilon_xsph" : 0.5, "g": [0, -9.81]},
+	
+	"boundaries" : [        		       				 
+		[
+			{ 
+				"velocity" : [0, 0], 
+				"lines" : 
+				[ 
+					{ "x" : 4.56, "y" : 8.12}, 
+					{ "x" : 5.08, "y" : 7.92}
+				]						
+			},
+			{ 
+				"velocity" : [0, 0], 
+				"lines" : 
+				[ 
+					{ "x" : 9.62, "y" : 8.22}, 
+					{ "x" : 9.1, "y" : 8.02}
+				]						
+			}, 
+		        { 
+				"velocity" : [0, 0], 
+				"lines" : 
+				[
+ 					{ "x" : 7.09, "y" : 4.9},
+					{ "x" : 7.09, "y" : 5},
+					{ "x" : 5.09, "y" : 8}
+				]						
+			},
+			{ 
+				"velocity" : [0, 0], 
+				"lines" : 
+				[ 
+					{ "x" : 9.1, "y" : 8.02}, 
+					{ "x" : 7.1, "y" : 5.02},
+					{ "x" : 7.1, "y" : 4.9}
+				]					
+			}	 
+		]
+	],
+	"periodic_boundaries" : [
+		[
+			{
+				"velocity" : [0, 0],
+				"lines" :
+				[
+					{ "x" : 4.7, "y" : 8.5},
+					{ "x" : 4.6, "y" : 8.4}
+				]
+			},
+			{
+				"velocity" : [0, 0],
+				"lines" :
+				[
+					{ "x" : 7.3, "y" : 4.9},
+					{ "x" : 6.9, "y" : 4.9}
+				]
+			}
+		]
+	],
+"fluid_parameters" : {"density1" : 998.207, "nu1" : 0.000001004, "polytropic_index1" : 7, "density2": 5000, "nu2" : 0.001004, "polytropic_index2" : 7},
+"horizontal_inflow" : [
+		[
+			{
+				"velocity" : [-0.2335, -0.0895],
+				"lines" :
+				[
+					{ "x" : 8.9533, "y" : 9.9305},
+					{ "x" : 9.5995, "y" : 8.2511}
+				]
+			},
+			{
+				"second_phase" : 1,
+				"velocity" : [-0.2335, -0.0895],
+				"lines" :
+				[
+					{ "x" : 9.6138, "y" : 8.2138},
+					{ "x" : 9.6066, "y" : 8.2324}
+				]
+			}
+		]
+	]
+}

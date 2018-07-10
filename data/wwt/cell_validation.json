@@ -1,0 +1,23 @@
+{ 
+	"scene" : {"sampling_dist" : 0.01, "width" : 1.2, "height" : 1.2, "neighbours" : 2},
+	"sph" : {"epsilon_xsph" : 0, "moving_least_squares" : true,
+	         "c": 99.045, "g": [0, 0]},
+
+	"asm" : {
+		"grid" : {
+			"origin_x" : 0.1,
+			"origin_y" : 0.1,
+			"neighbours" : 6,
+			"size" : 1
+		}
+	},
+
+	"fluid_reactor1" : [ 
+		 { 
+			"x" : 0.1, 
+			"y" : 0.1, 
+			"width" : 1.02, 
+			"height" : 1.02			 
+		 }
+	]
+}
