@@ -1,0 +1,55 @@
+{
+	"scene" : {"sampling_dist" : 0.01, "width" : 6.0, "height" : 3.0, "neighbours" : 3, "connect_boundaries" : true},
+	"sph" : {"c": 35, "alpha": 0.2, "t_damp": 1.0, "g": [0, -1], "shepard":true, "hydrostatic_initialization": false, "no_slip": false},
+	"fluid_parameters" : {"density1" : 1, "nu1" : 0.00000},
+
+	"boundaries" : [
+		[
+			{
+				"velocity" : [0, 0],
+				"lines" :
+				[
+					{ "x" : 5.566, "y" : 3.000 },
+					{ "x" : 5.566, "y" : 0.200 },
+					{ "x" : 0.200, "y" : 0.200 },
+					{ "x" : 0.200, "y" : 3.000 }
+				]
+			},{
+				"velocity" : [0, 0],
+				"lines" :
+				[
+					{ "x" : 2.2, "y" : 3.000 },
+					{ "x" : 2.2, "y" : 0.300 }
+				]
+			}
+		]
+	],
+	"fluids" : [
+		{
+			"x" : 0.200,
+			"y" : 0.200,
+			"width" :  2.000,
+			"height" : 2.000
+		}
+	],
+  "periodic_boundaries" : [
+	[
+  	{
+			"velocity" : [0, 0],
+			"lines" :
+			[
+				{ "x" : 3.000, "y" : 0.190},
+				{ "x" : 3.000, "y" : 0.400}
+			]
+		},
+		{
+			"velocity" : [0, 0],
+			"lines" :
+			[
+				{ "x" : 0.500, "y" : 2.300},
+				{ "x" : 0.500, "y" : 2.500}
+			]
+		}
+	]
+  ]
+}

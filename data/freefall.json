@@ -1,0 +1,25 @@
+{
+	"scene" : {"sampling_dist" : 0.01, "width" : 2.0, "height" : 205, "neighbours" : 3, "connect_boundaries" : true},
+	"sph" : {"c": 40, "alpha": 0.10, "t_damp": 0.0, "g": [0, -9.81], "shepard": true},
+
+	"boundaries" : [
+		[
+				{
+				"velocity" : [0, 0], 
+				"lines" : 
+				[ 
+					{ "x" : 1.710, "y" : 202.000 },
+					{ "x" : 1.710, "y" : 200.300 }
+				]
+			}
+		]
+	],
+	"fluids" : [
+		{
+			"x" : 1.110,
+			"y" : 200.300,
+			"width" :  0.300,
+			"height" : 0.300
+		}
+	]
+}

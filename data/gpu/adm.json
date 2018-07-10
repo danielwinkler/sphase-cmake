@@ -1,0 +1,44 @@
+{
+    "scene": {
+        "sampling_dist": 0.05,
+        "width": 35,
+        "height": 35,
+        "neighbours": 3
+    },
+
+    "sph": {
+        "epsilon_xsph": 0.0,
+        "moving_least_squares": false,
+        "shepard": true,
+        "c": 99.045,
+        "alpha": 0.0,
+        "density1": 1000.36,
+        "nu1": 7e-6,
+        "t_damp": 0,
+        "g": [0, -9.81],
+      	"hydrostatic_initialization": true,
+      	"no_slip": false
+    },
+    "stirrer": {
+        "type": 2,
+        "origin_x": 19.80,
+        "origin_y": 8.675,
+        "velocity": 1.5,
+        "length_x": 0.40,
+        "length_y": 21.2
+    },
+    "stirrer2x": {
+        "type": 2,
+        "origin_x": 0,
+        "origin_y": 0,
+        "velocity": 0,
+        "length_x": 0,
+        "length_y": 0
+    },
+    "fluids": [{
+        "x": 10,
+        "y": 8.225,
+        "width": 20,
+        "height": 22.05
+    }]
+}
