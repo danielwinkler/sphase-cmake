@@ -1,0 +1,3 @@
+[submodule "gpusphase"]
+	path = gpusphase
+	url = git@github.com:iut-ibk/gpusphase.git
