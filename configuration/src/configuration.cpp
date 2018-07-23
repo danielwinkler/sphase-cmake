@@ -41,40 +41,8 @@ Sph<number>::Sph()
     , hydrostatic_initialization(false)
     , nonNewtonian(false)
     , power_law(false)
-    , shifting(false)
     , n_pl(0.294) // power-law index
     , k_pl(1.0) // consistency index
-{
-}
-
-template <typename number>
-Asm<number>::Asm()
-    : sd(1.0)
-    , width(0.0)
-    , height(0.0)
-    , ya(0.24)
-    , yh(0.67)
-    , fp(0.08)
-    , ixb(0.086)
-    , ixp(0.086)
-    , ixe(0.06)
-    , mh(6.0)
-    , Ks(20.0)
-    , Koh(0.2)
-    , Kno(0.5)
-    , bh(0.62)
-    , ba(0.62)
-    , eg(0.8)
-    , eh(0.4)
-    , kh(3.0)
-    , rho7(3.0)
-    , Kx(0.03)
-    , ma(0.8)
-    , Knh(1.0)
-    , Koa(0.4)
-    , ka(0.08)
-    , SRT(12.0)
-    , time_scaling(1.0)
 {
 }
 
@@ -94,7 +62,5 @@ template class Configuration<float>;
 template class Configuration<double>;
 template struct Sph<float>;
 template struct Sph<double>;
-template struct Asm<float>;
-template struct Asm<double>;
 
 }

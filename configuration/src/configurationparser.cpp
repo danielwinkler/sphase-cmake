@@ -149,87 +149,8 @@ void ConfigurationParser<number>::createJson() {
     sph["stirrer2"] = stirrer2;
     root["sph"] = sph;
 
-    QJsonObject sm;
-    sm["ba"] = c.sm.ba;
-    sm["bh"] = c.sm.bh;
-    sm["eg"] = c.sm.eg;
-    sm["eh"] = c.sm.eh;
-    sm["fp"] = c.sm.fp;
-    sm["height"] = c.sm.height;
-    sm["ixb"] = c.sm.ixb;
-    sm["ixe"] = c.sm.ixe;
-    sm["ixp"] = c.sm.ixp;
-    sm["ka"] = c.sm.ka;
-    sm["kh"] = c.sm.kh;
-    sm["Knh"] = c.sm.Knh;
-    sm["Kno"] = c.sm.Kno;
-    sm["Koa"] = c.sm.Koa;
-    sm["Koh"] = c.sm.Koh;
-    sm["Ks"] = c.sm.Ks;
-    sm["Kx"] = c.sm.Kx;
-    sm["ma"] = c.sm.ma;
-    sm["mh"] = c.sm.mh;
-    sm["rho7"] = c.sm.rho7;
-    sm["sd"] = c.sm.sd;
-    sm["SRT"] = c.sm.SRT;
-    sm["time_scaling"] = c.sm.time_scaling;
-    sm["width"] = c.sm.width;
-    sm["ya"] = c.sm.ya;
-    sm["yh"] = c.sm.yh;
-
-    QJsonObject grid;
-    grid["origin_x"] = c.sm.grid.origin_x;
-    grid["origin_y"] = c.sm.grid.origin_y;
-    grid["size"] = c.sm.grid.size;
-    grid["neighbours"] = c.sm.grid.neighbours;
-    sm["grid"] = grid;
-
-    QJsonObject inflow_area;
-    inflow_area["x"] = c.sm.inflow_area.x;
-    inflow_area["y"] = c.sm.inflow_area.y;
-    inflow_area["width"] = c.sm.inflow_area.width;
-    inflow_area["height"] = c.sm.inflow_area.height;
-    sm["inflow_area"] = inflow_area;
-
-    QJsonObject outflow_area;
-    outflow_area["x"] = c.sm.outflow_area.x;
-    outflow_area["y"] = c.sm.outflow_area.y;
-    outflow_area["width"] = c.sm.outflow_area.width;
-    outflow_area["height"] = c.sm.outflow_area.height;
-    sm["outflow_area"] = outflow_area;
-
-    QJsonObject reactor1;
-    reactor1["oxygen"] = c.sm.reactor1.oxygen;
-    reactor1["cstr"] = c.sm.reactor1.cstr;
-    reactor1["cstr_volume"] = c.sm.reactor1.cstr_volume;
-    reactor1["inflow"] = c.sm.reactor1.inflow;
-    QJsonObject area1;
-    area1["x"] = c.sm.reactor1.area.x;
-    area1["y"] = c.sm.reactor1.area.y;
-    area1["width"] = c.sm.reactor1.area.width;
-    area1["height"] = c.sm.reactor1.area.height;
-    reactor1["area"] = area1;
-    sm["reactor1"] = reactor1;
-
-    QJsonObject reactor2;
-    reactor2["oxygen"] = c.sm.reactor2.oxygen;
-    reactor2["cstr"] = c.sm.reactor2.cstr;
-    reactor2["cstr_volume"] = c.sm.reactor2.cstr_volume;
-    reactor2["inflow"] = c.sm.reactor2.inflow;
-    QJsonObject area2;
-    area2["x"] = c.sm.reactor2.area.x;
-    area2["y"] = c.sm.reactor2.area.y;
-    area2["width"] = c.sm.reactor2.area.width;
-    area2["height"] = c.sm.reactor2.area.height;
-    reactor2["area"] = area2;
-    sm["reactor2"] = reactor2;
-
-    root["asm"] = sm;
-
     root["fluid1"] = parseAreaStructVector(c, c.fluid1);
     root["fluid2"] = parseAreaStructVector(c, c.fluid2);
-    root["fluid_reactor1"] = parseAreaStructVector(c, c.fluid_reactor1);
-    root["fluid_reactor2"] = parseAreaStructVector(c, c.fluid_reactor2);
 
     root["solid_boundaries"] = parseLineSegmentVector(c.solid_boundaries);
 

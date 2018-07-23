@@ -38,8 +38,6 @@ private:
     void addParticles(pair<number> pos, pair<number> dim, std::function<void(Particle2<number>&)> modifier);
     void addSquareFluid1(pair<number> pos, pair<number> dim);
     void addSquareFluid2(pair<number> pos,pair<number> dim);
-    void addSquareFluid_Reactor1(pair<number> pos, pair<number> dim);
-    void addSquareFluid_Reactor2(pair<number> pos,pair<number> dim);
 
 
     Configuration<number>   configuration;

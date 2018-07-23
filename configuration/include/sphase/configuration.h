@@ -22,31 +22,6 @@ struct AreaStruct
 };
 
 template <typename number>
-struct Grid
-{
-    Grid() : origin_x(0.0), origin_y(0.0), size(25) { }
-    ~Grid() { }
-
-    number origin_x, origin_y;
-    number neighbours;
-    int size;
-};
-
-template <typename number>
-struct Reactor
-{
-    Reactor() : oxygen(0.0), cstr(false), cstr_volume(0.0), inflow(0.0) {}
-    ~Reactor() { }
-
-    number oxygen;
-    bool   cstr;
-    number cstr_volume;
-    number inflow;
-
-    struct AreaStruct<number> area;
-};
-
-template <typename number>
 struct Sph
 {
     Sph();
@@ -85,52 +60,12 @@ struct Sph
     bool no_slip;
     bool shepard;
     bool moving_least_squares;
-    bool shifting;
     bool nonNewtonian;
     bool power_law;
     struct Stirrer stirrer, stirrer2;
     Vector2<number> g;
     number t_damp;
     bool hydrostatic_initialization;
-};
-
-template <typename number>
-struct Asm
-{
-    Asm();
-    ~Asm() { }
-
-    number sd;
-    number width;
-    number height;
-    number ya;
-    number yh;
-    number fp;
-    number ixb;
-    number ixp;
-    number ixe;
-    number mh;
-    number Ks;
-    number Koh;
-    number Kno;
-    number bh;
-    number ba;
-    number eg;
-    number eh;
-    number kh;
-    number rho7;
-    number Kx;
-    number ma;
-    number Knh;
-    number Koa;
-    number ka;
-    number SRT;
-    number time_scaling;
-
-    struct Grid<number> grid;
-    struct AreaStruct<number> inflow_area, outflow_area;
-    struct Reactor<number> reactor1;
-    struct Reactor<number> reactor2;
 };
 
 template <typename number>
@@ -170,7 +105,6 @@ public:
 
     Scene<number> scene;
     Sph<number> sph;
-    Asm<number> sm;
 
     std::string json_file;
     std::string import_file;
@@ -183,8 +117,6 @@ public:
 
     std::vector<AreaStruct<number> > fluid1;
     std::vector<AreaStruct<number> > fluid2;
-    std::vector<AreaStruct<number> > fluid_reactor1;
-    std::vector<AreaStruct<number> > fluid_reactor2;
     std::vector<Boundary<number> > boundaries;
 
     std::vector<LineSegment<number> > solid_boundaries;

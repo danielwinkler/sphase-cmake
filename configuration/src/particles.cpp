@@ -300,12 +300,6 @@ void ParticleHelper<number>::initFromConfiguration()
     std::for_each(configuration.fluid2.cbegin(), configuration.fluid2.cend(), [this] (const AreaStruct<number>& ar) {
         addSquareFluid2(pair<number>(ar.x, ar.y), pair<number>(ar.width, ar.height));
     });
-    std::for_each(configuration.fluid_reactor1.cbegin(), configuration.fluid_reactor1.cend(), [this] (const AreaStruct<number>& ar) {
-        addSquareFluid_Reactor1(pair<number>(ar.x, ar.y), pair<number>(ar.width, ar.height));
-    });
-    std::for_each(configuration.fluid_reactor2.cbegin(), configuration.fluid_reactor2.cend(), [this] (const AreaStruct<number>& ar) {
-        addSquareFluid_Reactor2(pair<number>(ar.x, ar.y), pair<number>(ar.width, ar.height));
-    });
     // TODO check rigid particles and stirrer particles
     //    std::for_each(configuration.boundaries.cbegin(), configuration.boundaries.cend(), [this] (const Boundary<number>& b) {
     //        std::unique_ptr<Vector2<number>> previous(nullptr);
@@ -406,24 +400,6 @@ void ParticleHelper<number>::addSquareFluid2(pair<number> pos, pair<number> dim)
     {
         p.set(Fluid);
         p.set(SecondPhase);
-    });
-}
-
-template<typename number>
-void ParticleHelper<number>::addSquareFluid_Reactor1(pair<number> pos, pair<number> dim) {
-    addParticles(pos, dim, [](Particle2<number>& p)
-    {
-        p.set(Fluid);
-        p.set(Reactor1);
-    });
-}
-
-template<typename number>
-void ParticleHelper<number>::addSquareFluid_Reactor2(pair<number> pos, pair<number> dim) {
-    addParticles(pos, dim, [](Particle2<number>& p)
-    {
-        p.set(Fluid);
-        p.set(Reactor2);
     });
 }
 

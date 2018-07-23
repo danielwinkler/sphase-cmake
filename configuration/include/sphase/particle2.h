@@ -21,8 +21,6 @@ enum ParticleType {
     MovingWall = 128,   // sub type of wall, moved with wall velocity
     SecondPhase = 256,  // fluid particle, phase 2
     Rigid = 512,        // sub type of wall, moved with velocity, mirrored when exiting scene (used for aeration)
-    Reactor1 = 1024,    // only for ASM (marker), can be calculated with ASM calculation depending on position
-    Reactor2 = 2048,    // only for ASM (marker), can be calculated with ASM calculation depending on position
     Stirrer = 4096      // sub type of wall, moving wall with velocity v(t,r)
 };
 
@@ -48,13 +46,10 @@ public:
         if (is_moving_wall) {
             set(MovingWall);
         }
-        v = v_avg = f = shiftVec = Vector2<number>();
+        v = v_avg = f = Vector2<number>();
         c = p = rho = mass = t_offset = Si = 0.0;
-        freeSurfaceID = false;
 
         selected = false;
-
-        Stress = Matrix2<number>();
     }
 
     unsigned int id;
@@ -69,9 +64,6 @@ public:
     number mass;
     number t_offset;
     unsigned int type;
-    Matrix2<number> Stress;
-    bool freeSurfaceID;
-    Vector2<number> shiftVec;
 
     bool selected;
 
@@ -109,14 +101,6 @@ public:
 
     inline bool is_rigid() const {
         return is(Rigid);
-    }
-
-    inline bool is_reactor1() const {
-        return is(Reactor1);
-    }
-
-    inline bool is_reactor2() const {
-        return is(Reactor2);
     }
 
     inline bool is_stirrer() const {

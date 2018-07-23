@@ -209,88 +209,6 @@ void JSONParser<number>::createConfiguration() {
         c.sph.stirrer2.length_y = (root["stirrer2"].toObject()["length_y"].toDouble());
     }
 
-
-    c.sm.sd = c.scene.sample_dist;
-    c.sm.width = c.scene.width;
-    c.sm.height = c.scene.height;
-
-    if (root["asm"].toObject().contains("time_scaling")) {
-        c.sm.time_scaling = root["asm"].toObject()["time_scaling"].toDouble();
-    }
-    if (root["asm"].toObject().contains("SRT")) {
-        c.sm.SRT = root["asm"].toObject()["SRT"].toDouble();
-    }
-
-    if (root["asm"].toObject().contains("grid")) {
-        if (root["asm"].toObject()["grid"].toObject().contains("origin_x")) {
-            c.sm.grid.origin_x = root["asm"].toObject()["grid"].toObject()["origin_x"].toDouble();
-        }
-        if (root["asm"].toObject()["grid"].toObject().contains("origin_y")) {
-            c.sm.grid.origin_y = root["asm"].toObject()["grid"].toObject()["origin_y"].toDouble();
-        }
-        if (root["asm"].toObject()["grid"].toObject().contains("neighbours")) {
-            c.sm.grid.neighbours = root["asm"].toObject()["grid"].toObject()["neighbours"].toDouble();
-        }
-        if (root["asm"].toObject()["grid"].toObject().contains("size")) {
-            c.sm.grid.size = root["asm"].toObject()["grid"].toObject()["size"].toDouble();
-        }
-    }
-
-    if (root["asm"].toObject().contains("reactor1")) {
-        if (root["asm"].toObject()["reactor1"].toObject().contains("area")) {
-            c.sm.reactor1.area.x = root["asm"].toObject()["reactor1"].toObject()["area"].toObject()["x"].toDouble();
-            c.sm.reactor1.area.y = root["asm"].toObject()["reactor1"].toObject()["area"].toObject()["y"].toDouble();
-            c.sm.reactor1.area.width = root["asm"].toObject()["reactor1"].toObject()["area"].toObject()["width"].toDouble();
-            c.sm.reactor1.area.height = root["asm"].toObject()["reactor1"].toObject()["area"].toObject()["height"].toDouble();
-        }
-        if (root["asm"].toObject()["reactor1"].toObject().contains("oxygen")) {
-            c.sm.reactor1.oxygen = root["asm"].toObject()["reactor1"].toObject()["oxygen"].toDouble();
-        }
-        if (root["asm"].toObject()["reactor1"].toObject().contains("cstr")) {
-            c.sm.reactor1.cstr = root["asm"].toObject()["reactor1"].toObject()["cstr"].toBool();
-        }
-        if (root["asm"].toObject()["reactor1"].toObject().contains("cstr_volume")) {
-            c.sm.reactor1.cstr_volume = root["asm"].toObject()["reactor1"].toObject()["cstr_volume"].toDouble();
-        }
-        if (root["asm"].toObject()["reactor1"].toObject().contains("inflow")) {
-            c.sm.reactor1.inflow = root["asm"].toObject()["reactor1"].toObject()["inflow"].toDouble();
-        }
-    }
-
-    if (root["asm"].toObject().contains("reactor2")) {
-        if (root["asm"].toObject()["reactor2"].toObject().contains("area")) {
-            c.sm.reactor2.area.x = root["asm"].toObject()["reactor2"].toObject()["area"].toObject()["x"].toDouble();
-            c.sm.reactor2.area.y = root["asm"].toObject()["reactor2"].toObject()["area"].toObject()["y"].toDouble();
-            c.sm.reactor2.area.width = root["asm"].toObject()["reactor2"].toObject()["area"].toObject()["width"].toDouble();
-            c.sm.reactor2.area.height = root["asm"].toObject()["reactor2"].toObject()["area"].toObject()["height"].toDouble();
-        }
-        if (root["asm"].toObject()["reactor2"].toObject().contains("oxygen")) {
-            c.sm.reactor2.oxygen = root["asm"].toObject()["reactor2"].toObject()["oxygen"].toDouble();
-        }
-        if (root["asm"].toObject()["reactor2"].toObject().contains("cstr")) {
-            c.sm.reactor2.cstr = root["asm"].toObject()["reactor2"].toObject()["cstr"].toBool();
-        }
-        if (root["asm"].toObject()["reactor2"].toObject().contains("cstr_volume")) {
-            c.sm.reactor2.cstr_volume = root["asm"].toObject()["reactor2"].toObject()["cstr_volume"].toDouble();
-        }
-        if (root["asm"].toObject()["reactor2"].toObject().contains("inflow")) {
-            c.sm.reactor2.inflow = root["asm"].toObject()["reactor2"].toObject()["inflow"].toDouble();
-        }
-    }
-
-    if (root["asm"].toObject().contains("inflow_area")) {
-        c.sm.inflow_area.x = root["asm"].toObject()["inflow_area"].toObject()["x"].toDouble();
-        c.sm.inflow_area.y = root["asm"].toObject()["inflow_area"].toObject()["y"].toDouble();
-        c.sm.inflow_area.width = root["asm"].toObject()["inflow_area"].toObject()["width"].toDouble();
-        c.sm.inflow_area.height = root["asm"].toObject()["inflow_area"].toObject()["height"].toDouble();
-    }
-    if (root["asm"].toObject().contains("outflow_area")) {
-        c.sm.outflow_area.x = root["asm"].toObject()["outflow_area"].toObject()["x"].toDouble();
-        c.sm.outflow_area.y = root["asm"].toObject()["outflow_area"].toObject()["y"].toDouble();
-        c.sm.outflow_area.width = root["asm"].toObject()["outflow_area"].toObject()["width"].toDouble();
-        c.sm.outflow_area.height = root["asm"].toObject()["outflow_area"].toObject()["height"].toDouble();
-    }
-
     foreach(QJsonValue fluid1, root["fluids"].toArray()) {
         if ((fluid1.toObject()["x"].toDouble() >= 0) && (fluid1.toObject()["y"].toDouble() >= 0)) {
             c.fluid1.emplace_back(
@@ -323,45 +241,6 @@ void JSONParser<number>::createConfiguration() {
             );
         }
     }
-
-    foreach(QJsonValue fluid_reactor1, root["fluid_reactor1"].toArray()) {
-        if ((fluid_reactor1.toObject()["x"].toDouble() > 0) && (fluid_reactor1.toObject()["y"].toDouble() > 0)) {
-            c.fluid_reactor1.emplace_back(
-                align_to_grid(fluid_reactor1.toObject()["x"].toDouble()) - c.scene.originx
-                , align_to_grid(fluid_reactor1.toObject()["y"].toDouble()) - c.scene.originy
-                , align_to_grid(fluid_reactor1.toObject()["width"].toDouble())
-                , align_to_grid(fluid_reactor1.toObject()["height"].toDouble())
-            );
-        }
-    }
-
-    foreach(QJsonValue fluid_reactor2, root["fluid_reactor2"].toArray()) {
-        if ((fluid_reactor2.toObject()["x"].toDouble() > 0) && (fluid_reactor2.toObject()["y"].toDouble() > 0)) {
-            c.fluid_reactor2.emplace_back(
-                align_to_grid(fluid_reactor2.toObject()["x"].toDouble()) - c.scene.originx
-                , align_to_grid(fluid_reactor2.toObject()["y"].toDouble()) - c.scene.originy
-                , align_to_grid(fluid_reactor2.toObject()["width"].toDouble())
-                , align_to_grid(fluid_reactor2.toObject()["height"].toDouble())
-            );
-        }
-    }
-
-//    foreach(QJsonValue particle, root["rigid_particles"].toArray()) {
-//        if ((particle.toObject()["x"].toDouble() > 0) && (particle.toObject()["y"].toDouble() > 0)) {
-//            QVariantMap point = particle.toObject();
-//            Vector2<number> pos(point["x"].toDouble() - p.originx, point["y"].toDouble() - p.originy);
-//            Vector2<number> vel(point["v_x]"].toDouble(), point["v_y"].toDouble());
-//            scene->addRigidParticle(pos, vel);
-//        }
-//    }
-
-//    foreach(QJsonValue particle, root["stirrer_particles"].toArray()) {
-//        if ((particle.toObject()["x"].toDouble() > 0) && (particle.toObject()["y"].toDouble() > 0)) {
-//            QVariantMap point = particle.toObject();
-//            Vector2<number> pos(point["x"].toDouble() - p.originx, point["y"].toDouble() - p.originy);
-//            scene->addStirrerParticle(pos);
-//        }
-//    }
 
     foreach(QJsonValue outer_line_strip, root["boundaries"].toArray())
         foreach(QJsonValue line_strip, outer_line_strip.toArray())
