@@ -10,10 +10,6 @@ The gpuSPHASE user manual is available as
 * [PDF](http://iut-ibk.github.io/gpusphase/documentation/userguide.pdf)
 * [HTML](https://github.com/iut-ibk/gpusphase/blob/gh-pages/documentation/userguide.pdf)
 
-Instructions for using the ASM routine
-* [PDF](http://iut-ibk.github.io/gpusphase/documentation/ASMroutine_instructions.pdf)
-* [HTML](https://github.com/iut-ibk/gpusphase/blob/gh-pages/documentation/ASMroutine_instructions.pdf)
-
 ### Source code documentation
 
 Source code is documented inline and a external documentation is created with doxygen.
