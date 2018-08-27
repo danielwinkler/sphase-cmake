@@ -99,9 +99,10 @@ More information on the format can be found in the user manual.
 
 ### Command line
 
-The following line loads the scene `myscene.json` and executes it for a total of 3 seconds, sampling every 0.01 to the H5Part output file.
+The following line loads the scene `lobovsky.json` and executes it for a total of 3 seconds, sampling every 0.05 to the H5Part output file. After installation (`make install`) the executable is in the `bin` subfolder.
 ```
-./gpusphase -i ./input/myscene.json -t 3.0 -s 0.01
+cd bin
+./gpusphase -i ../../data/lobovsky.json -t 3.0 -s 0.05
 ```
 
 ## View
