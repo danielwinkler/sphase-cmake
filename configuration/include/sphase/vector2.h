@@ -130,8 +130,7 @@ Vector2<number> operator/(number scalar, const Vector2<number> &right) {
 
 template <typename number>
 std::ostream &operator<<(std::ostream &c, const Vector2<number>  &v) {
-    c << "Vector[" << v.x << ", " << v.y << "]";
-    return c;
+    return c << "Vector[" << v.x << ", " << v.y << "]";
 }
 
 template<typename number>
@@ -237,8 +236,8 @@ public:
 
 template<typename number>
 std::ostream &operator<<(std::ostream &out, const Matrix2<number> &m) {
-    out << "Matrix[" << m.m11 << " " << m.m12 <<
-           ";" << m.m21 << " " << m.m22 << "]";
+    return out << "Matrix[" << m.m11 << " " << m.m12
+               << ";" << m.m21 << " " << m.m22 << "]";
 }
 
 }
